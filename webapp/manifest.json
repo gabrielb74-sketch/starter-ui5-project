@@ -1,20 +1,29 @@
-{
-  "name": "starter-ui5-project",
-  "version": "1.0.0",
-  "description": "Starter UI5 project with CLI, middleware and build task",
-  "scripts": {
-    "start": "ui5 serve",
-    "build": "ui5 build"
-  },
-  "devDependencies": {
-    "@ui5/cli": "^3.0.0",
-    "ui5-middleware-simpleproxy": "^3.4.1",
-    "ui5-task-zipper": "^2.0.0"
-  },
-  "ui5": {
-    "dependencies": [
-      "ui5-middleware-simpleproxy",
-      "ui5-task-zipper"
-    ]
-  }
-}
+specVersion: '2.6'
+metadata:
+  name: starter-ui5-project
+type: application
+
+resources:
+  configuration:
+    paths:
+      webapp: webapp
+
+server:
+  customMiddleware:
+    - name: ui5-middleware-simpleproxy
+      mountPath: /odata
+      afterMiddleware: compression
+      configuration:
+        baseUri: https://services.odata.org/V2/Northwind/Northwind.svc/
+
+builder:
+  resources:
+    excludes:
+      - "/test/**"
+  customTasks:
+    - name: ui5-task-zipper
+      afterTask: generateResources
+      configuration:
+        archiveName: starter-ui5-project
+        additionalFiles:
+          - README.md
