@@ -22,6 +22,7 @@ builder:
       - "/test/**"
   customTasks:
     - name: ui5-task-zipper
+      afterTask: generateResources
       configuration:
         archiveName: starter-ui5-project
         additionalFiles:
