@@ -1,1 +1,35 @@
-
+{
+    "sap.app": {
+        "id": "starter.ui5",
+        "type": "application",
+        "title": "Starter UI5 App",
+        "applicationVersion": {
+            "version": "1.0.0"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {},
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "starter.ui5.view.MainView",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUI5Version": "1.60",
+            "libs": {
+                "sap.m": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    }
+}
