@@ -1,0 +1,4 @@
+specVersion: '2.2'
+metadata:
+  name: starter-ui5-project
+type: application
