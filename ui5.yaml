@@ -1,12 +1,12 @@
 specVersion: '2.6'
+type: application
 metadata:
   name: starter-ui5-project
-type: application
 
 resources:
   configuration:
     paths:
-      webapp: .
+      webapp: webapp
 
 server:
   customMiddleware:
